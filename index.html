@@ -6,15 +6,15 @@
   <title>スプレッドシートデータ表示</title>
   <script>
     async function fetchData() {
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-      const targetUrl = 'https://script.google.com/macros/s/your-script-id/exec';
+      const apiUrl = 'https://script.google.com/macros/s/AKfycbzGaG9IkpVCnOg01QQelPajI39wzVQYfLTW_5SwYud8_Fc6NFkjRI_Fjso2iwViJfv-FA/exec';
 
       try {
-        const response = await fetch(proxyUrl + targetUrl);
+        const response = await fetch(apiUrl);
         const data = await response.json();
         document.getElementById('data').innerText = data.value;
       } catch (error) {
         console.error('Error fetching data:', error);
+        document.getElementById('data').innerText = 'Error fetching data';
       }
     }
     
@@ -25,7 +25,7 @@
   </script>
 </head>
 <body>
-  <h1>スプレッートのデータ</h1>
+  <h1>スプレッドシートのデータ</h1>
   <p id="data">Loading...</p>
 </body>
 </html>
