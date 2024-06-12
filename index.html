@@ -10,6 +10,9 @@
 
       try {
         const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         document.getElementById('data').innerText = data.value;
       } catch (error) {
